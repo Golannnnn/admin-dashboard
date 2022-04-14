@@ -1,25 +1,33 @@
 *,
 *:before,
-*:after { box-sizing: border-box; }
-
-html,
-body {
-    padding: 0;
+*:after { 
+    box-sizing: border-box; 
     margin: 0;
-    height: 100%;
+    padding: 0;
 }
 
-#grid-container {
+:root {
+    --main-theme-color: rgb(240, 153, 23);
+    --main-background-color: rgb(226, 238, 245);
+    --nav-color: rgb(29, 45, 54);
+}
+
+body {
+    height: 100vh;
+}
+
+main#grid-container {
     display: grid;
     grid: 
     [row1-start] "nav header header" 2fr [row1-end]
     [row2-start] "nav article aside" 5fr [row2-end]
     [row3-start] "nav article aside" 5fr [row3-end]
-    [row4-start] "nav article aside" 1fr [row4-end]
-    / 1fr 4fr 1fr;
+    / minmax(220px, 15%) minmax(350px, 65%) minmax(300px, 20%);
 
     height: 100%;
+    overflow: auto;
 }
+
 
 header {
     grid-area: header;
@@ -27,114 +35,116 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     z-index: 100;
-    padding: 15px 25px 15px 15px;
+
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    padding: 20px;
 }
 
 #first-row {
     display: flex;
-    flex-direction: row;
+    align-items: center;
     justify-content: space-between;
-    padding-top: 10px;
+
+    padding-bottom: 15px;
 }
 
 #search-wrapper {
     display: flex;
+    align-items: center;
     flex: content;
 }
 
 .search-icon {
-    position: relative;
+    background: url("./images/search.svg") center center / cover no-repeat;
     width: 30px;
     height: 30px;
-    top: 0px;
-    left: -10px;
-    margin-left: 1%;
+
+    margin-right: 20px;
 }
 
 input[type=text] {
     border-radius: 10px;
     border: 1px solid rgb(221, 220, 220);
     background-color: rgb(221, 220, 220);
-    padding: 4px;
+
     width: 100%;
-    height: fit-content;
+    padding: 4px;
 }
 
 #user-info {
-    display: flex;
-    flex-direction: row;
+    display: flex;    
     flex: content;
+    align-items: center;
     justify-content: flex-end;
-    font-weight: bold;
+}
+
+#user-info p {
+    font-weight: bolder;
 }
 
 .alert-icon {
-    position: relative;
-    top: 0px;
-    left: -50px;
-
+    background: url("./images/bell.svg") center center / cover no-repeat;
     width: 30px;
     height: 30px;
+
+    margin-right: 20px;
 }
 
 .profile-icon {
-    position: relative;
-    top: -12px;
-    left: -20px;
+    background: url("./images/Upstream-1.svg") center center / cover no-repeat;
+    width: 40px;
+    height: 40px;
 
-    width: 50px;
-    height: 50px;
+    margin-right: 20px;
 }
 
 #second-row {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
 }
 
 #user-info-big {
     display: flex;
-    flex-direction: row;
-    padding-left: 0px;
+    align-items: center;
 }
 
 .profile-icon-big {
-    position: relative;
-    top: 10px;
-    left: 0px;
-    width: 50px;
-    height: 50px;
+    background: url("./images/Upstream-1.svg") center center / cover no-repeat;
+    width: 60px;
+    height: 60px;
+
+    margin-right: 20px;
 }
 
-#user-info-big p {
-    padding-left: 20px;
+.profile-icon-text-big {
     font-size: 20px;
     font-weight: bold;
 }
 
 #user-buttons {
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 
 #user-buttons button {
-    font-weight: bold;
+    background-color: var(--main-theme-color);
+    color: black;
+
+    border: 2px solid var(--main-theme-color);
     border-radius: 2px;
-    border: 1px solid rgb(240, 153, 23);
-    background-color: rgb(240, 153, 23);
-    padding: 8px 25px 8px 25px;
-    margin-left: 25px;
+
+    font-weight: bold;
+        
+    margin-left: 20px;    
+    padding: 10px 30px 10px 30px;
 }
 
-nav,
-article,
+nav .nav-box,
 div.card,
-aside,
-aside div {
-    padding: 0px 15px 0px 15px;
+aside div.aside-box {
+    overflow: auto;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 nav {
@@ -142,48 +152,57 @@ nav {
 
     display: flex;
     flex-direction: column;
-    /* color: rgb(255, 255, 255); */
-    background-color: rgb(137, 209, 238);
+    height: 100%;
+    overflow: auto;
+
+    background-color: var(--nav-color);
+    color: white;
+
     font-weight: bolder;
-    padding-left: 40px;
-    font-size: 16px;
-    line-height: 0.8;
+
+    padding: 20px 0px 5px 0px;
 }
 
-nav img {
-    position: relative;
-    top: 10px;
-    left: -25px;
-    width: 35px;
-    height: 35px;
+article,
+div.card,
+aside,
+aside div.aside-box {
+    padding: 20px;
+    
+}
+
+article h2,
+aside h2 {
+    padding-bottom: 10px;
 }
 
 article {
     grid-area: article;
 
-    background-color: rgb(226, 238, 245);
+    background-color: var(--main-background-color);
+
+    height: 100%;
+    overflow: auto;
+
+    padding-bottom: 10px;
 }
 
 div#card-wrapper {
     display: grid;
-    grid: repeat(3, minmax(100px, 1fr)) / repeat(2, minmax(100px, 1fr)); 
-    gap: 20px;
-}
-
-div.card,
-aside div {
-    overflow: auto;
-    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    grid: repeat(3, minmax(10px, 1fr)) / repeat(2, minmax(10px, 1fr)); 
+    gap: 30px;
 }
 
 div.card {
-    border-left: 6px solid rgb(240, 153, 23);
     background-color: white;
+
     height: 200px;
+
+    border-left: 6px solid var(--main-theme-color);
 }
 
-div.card h4 {
-        line-height: 0.5;
+div.card p {
+    width: 77%;
 }
 
 aside {
@@ -191,19 +210,42 @@ aside {
 
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 
     background-color: rgb(226, 238, 245);
+
+    height: 100%;
+    overflow: auto;
+
+    padding-bottom: 10px;
+
 }
 
-aside div {
+aside div.aside-box {
     background-color: white;
-
 }
 
-aside #announcements h4 {
-    line-height: 0.5;
+.aside-box hr {
+    margin: 10px 0px 10px 0px;
+    opacity: 0.4;
 }
 
-aside #trending p {
-    font-weight: bold;
+#bulletin > .aside-box {
+    margin-bottom: 20px;
+}
+
+#trending > .aside-box {
+    display: flex;
+    flex-direction: column; 
+}
+
+#trending .trend {
+    display: flex;
+    align-items: center;
+}
+
+.trend.one,
+.trend.two,
+.trend.three {
+    margin-bottom: 20px;
 }
