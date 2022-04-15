@@ -45,7 +45,7 @@ header {
 #first-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* space-between */
 
     padding-bottom: 15px;
 }
@@ -69,7 +69,7 @@ input[type=text] {
     border: 1px solid rgb(221, 220, 220);
     background-color: rgb(221, 220, 220);
 
-    width: 100%;
+    width: 100%; /* 100% */
     padding: 4px;
 }
 
@@ -77,7 +77,7 @@ input[type=text] {
     display: flex;    
     flex: content;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-end; /* flex-end */
 }
 
 #user-info p {
@@ -177,10 +177,10 @@ nav .nav-row:not(.nav-row.one) {
     padding-left: 15%;
 }
 
-nav .nav-row:not(.nav-row.one):hover {
+/* nav .nav-row:not(.nav-row.one):hover {
     background-color: rgba(255, 255, 255, 0.1);
     border-left: 5px solid var(--main-theme-color);
-}
+} */
 
 nav .nav-row:not(.nav-row.one) {
     font-weight: 100;
@@ -235,8 +235,8 @@ article {
 
     background-color: var(--main-background-color);
 
-    height: 100%;
-    overflow: auto;
+    /* height: 100%;
+    overflow: auto; */
 
     padding-bottom: 10px;
 }
@@ -281,8 +281,8 @@ aside {
 
     background-color: rgb(226, 238, 245);
 
-    height: 100%;
-    overflow: auto;
+    /* height: 100%;
+    overflow: auto; */
 
     padding-bottom: 10px;
 
@@ -328,3 +328,204 @@ aside div.aside-box {
 .trend.two .image { background: url("./images/Teamwork-2.svg") center center / cover no-repeat; }
 .trend.three .image { background: url("./images/Teamwork-3.svg") center center / cover no-repeat; }
 .trend.four .image { background: url("./images/Teamwork-4.svg") center center / cover no-repeat; }
+
+/* media queries breakpoints */
+@media only screen and (max-width: 700px) {
+
+    main#grid-container {
+        display: grid;
+        grid: 
+        [row1-start] "header header header" 2fr [row1-end]
+        [row2-start] "article article article" 5fr [row2-end]
+        [row3-start] "aside aside aside" 1fr [row3-end]
+        / 1fr 1fr 1fr;
+    }
+
+    input[type=text] {
+        width: 100%;
+    }
+
+    #user-info {
+        display: none;
+    }
+
+    #first-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        padding-bottom: 15px;
+    }
+
+    #second-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #user-buttons button {
+        margin: 0px 10px 0px 10px;    
+        padding: 8px 20px 8px 20px;
+    }
+
+    #user-info-big {
+        margin: 10px 0px 25px 0px;
+    }
+    
+    .profile-icon-big {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .profile-icon-text-big {
+        font-size: 1.2rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    div#card-wrapper {
+        display: grid;
+        grid: repeat(6, minmax(10px, 1fr)) / repeat(1, minmax(10px, 1fr)); 
+    }
+
+    div.card {
+        height: fit-content;
+    } 
+
+}
+    
+@media only screen and (min-width: 700px) {
+
+    main#grid-container {
+        display: grid;
+        grid: 
+        [row1-start] "nav header header" 2fr [row1-end]
+        [row2-start] "nav article aside" 5fr [row2-end]
+        [row3-start] "nav article aside" 5fr [row3-end]
+        / 80px 2fr 290px;
+    }
+
+    #second-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #user-buttons button {
+        margin: 0px 0px 0px 20px;    
+        padding: 8px 20px 8px 20px;
+    }
+
+    #user-info-big {
+        margin: 0px;
+    }
+    
+    .profile-icon-big {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .profile-icon-text-big {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    nav {
+        align-items: center;
+    }
+    
+    .nav-row > .text {
+        display: none;
+    }
+    
+    nav .nav-row {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    
+    nav .nav-row.one {
+        margin-top: 45px;
+    }
+
+    article {
+        height: 100%;
+        overflow: auto;
+    }
+
+    div#card-wrapper {
+        display: grid;
+        grid: repeat(6, minmax(10px, 1fr)) / repeat(1, minmax(10px, 1fr)); 
+        gap: 30px;
+    }
+
+    div.card {
+        height: fit-content;
+
+        padding: 15px;
+    } 
+    
+    aside {
+        height: 100%;
+        overflow: auto;
+    }
+
+}
+     
+@media only screen and (min-width: 768px) {
+
+    #user-info {
+        display: flex;    
+        flex: content;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+}
+
+@media only screen and (min-width: 1200px) {
+
+    main#grid-container {
+        display: grid;
+        grid: 
+        [row1-start] "nav header header" 2fr [row1-end]
+        [row2-start] "nav article aside" 5fr [row2-end]
+        [row3-start] "nav article aside" 5fr [row3-end]
+        / minmax(220px, 15%) minmax(350px, 65%) minmax(300px, 20%);
+    }
+    
+    div#card-wrapper {
+        grid: repeat(3, minmax(10px, 1fr)) / repeat(2, minmax(10px, 1fr)); 
+    }
+    
+    div.card {
+        height: 200px;
+    }
+
+    nav {
+        align-items: flex-start;
+    }
+    
+    .nav-row > .text {
+        display: initial;
+    }
+    
+    nav .nav-row {
+        margin-right: 0px;
+        margin-left: 0px;
+        width: 100%;
+    }
+    
+    nav .nav-row.one {
+        margin-top: 0px;
+    }
+    
+    nav .nav-row:not(.nav-row.one):hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-left: 5px solid var(--main-theme-color);
+    }
+
+}
