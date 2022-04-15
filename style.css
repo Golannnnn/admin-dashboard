@@ -17,6 +17,15 @@ body {
     height: 100vh;
 }
 
+a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+
 main#grid-container {
     display: grid;
     grid: 
@@ -341,6 +350,11 @@ aside div.aside-box {
         / 1fr 1fr 1fr;
     }
 
+    article h2,
+    aside h2 {
+    text-align: center;
+}
+
     input[type=text] {
         width: 100%;
     }
@@ -437,8 +451,12 @@ aside div.aside-box {
     nav {
         align-items: center;
     }
-    
+
     .nav-row > .text {
+        display: none;
+    }
+    
+    .nav-row > a > .text {
         display: none;
     }
     
@@ -510,6 +528,10 @@ aside div.aside-box {
     }
     
     .nav-row > .text {
+        display: initial;
+    }
+
+    .nav-row > a > .text {
         display: initial;
     }
     
