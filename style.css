@@ -306,6 +306,11 @@ aside div.aside-box {
     opacity: 0.4;
 }
 
+section#bulletin a {
+        color: rgb(25, 33, 75);
+        text-decoration: underline;
+}
+
 #bulletin > .aside-box {
     margin-bottom: 20px;
 }
@@ -451,6 +456,10 @@ aside div.aside-box {
     nav {
         align-items: center;
     }
+ 
+    nav .nav-row.one {
+        margin-bottom: 0px;
+    }
 
     .nav-row > .text {
         display: none;
@@ -525,6 +534,11 @@ aside div.aside-box {
 
     nav {
         align-items: flex-start;
+    }
+
+    nav .nav-row.one, 
+    nav .nav-row.seven {
+        margin-bottom: 60px;
     }
     
     .nav-row > .text {
