@@ -40,7 +40,10 @@ main#grid-container {
 
 .search-icon:hover,
 .alert-icon:hover,
-nav .nav-row .image:hover {
+nav .nav-row .image:hover,
+.icon-wrapper .github:hover,
+.icon-wrapper .site:hover,
+.icon-wrapper .heart:hover {
     opacity: 0.6;
 }
 
@@ -259,7 +262,7 @@ article {
     /* height: 100%;
     overflow: auto; */
 
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 div#card-wrapper {
@@ -271,27 +274,79 @@ div#card-wrapper {
 div.card {
     background-color: white;
 
-    height: 200px;
+    height: fit-content;
 
     border-left: 6px solid var(--main-theme-color);
+
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
-div.card {
+div.card .image {
+    height: 200px;
+    width: 400px;
+}
+
+div.card.one .image { background: url("./images/sign-up-form.png") center center / cover no-repeat; }
+div.card.two .image { background: url("./images/calculator.png") center center / cover no-repeat; }
+div.card.three .image { background: url("./images/etch-a-sketch.png") center center / cover no-repeat; }
+div.card.four .image { background: url("./images/rockpaper.png") center center / cover no-repeat; }
+div.card.five .image { background: url("./images/landing-page.png") center center / cover no-repeat; }
+div.card.six .image { background: url("./images/recipes.png") center center / cover no-repeat; }
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 1fr;
+    margin-top: 20px;
+}
+
+.image-wrapper .image {
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border: 1px solid rgb(158, 158, 158);
+}
+
+.icon-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.icon-wrapper div {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-wrapper .github {
+    background: url("./images/github2.svg") center center / cover no-repeat;
+    margin-right: 35px;
+}
+
+.icon-wrapper .site {
+    background: url("./images/layout1.svg") center center / cover no-repeat;
+    margin-right: 35px;
+}
+
+.icon-wrapper .heart { background: url("./images/heart.svg") center center / cover no-repeat; }
+
+
+/* div.card {
     background-position: right bottom;
     background-repeat: no-repeat;
     background-size: 30%;
-}
+} */
 
-div.card.one { background-image: url("./images/seo_illustrations_1.svg"); }
-div.card.two { background-image: url("./images/seo_illustrations_2.svg"); }
+/* div.card.one { background-image: url("./images/seo_illustrations_1.svg"); } */
+/* div.card.two { background-image: url("./images/seo_illustrations_2.svg"); }
 div.card.three { background-image: url("./images/seo_illustrations_3.svg"); }
 div.card.four { background-image: url("./images/seo_illustrations_4.svg"); }
 div.card.five { background-image: url("./images/seo_illustrations_5.svg"); }
-div.card.six { background-image: url("./images/seo_illustrations_6.svg"); }
+div.card.six { background-image: url("./images/seo_illustrations_6.svg"); } */
 
-div.card p {
+/* div.card p {
     width: 77%;
-}
+} */
 
 aside {
     grid-area: aside;
@@ -533,7 +588,7 @@ section#bulletin a {
         [row1-start] "nav header header" 2fr [row1-end]
         [row2-start] "nav article aside" 5fr [row2-end]
         [row3-start] "nav article aside" 5fr [row3-end]
-        / minmax(220px, 15%) minmax(350px, 65%) minmax(300px, 20%);
+        / minmax(220px, 15%) minmax(350px, 60%) minmax(300px, 25%);
     }
     
     div#card-wrapper {
@@ -541,7 +596,7 @@ section#bulletin a {
     }
     
     div.card {
-        height: 200px;
+        height: 1fr;
     }
 
     nav {
